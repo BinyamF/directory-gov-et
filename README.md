@@ -1,2 +1,2 @@
 # directory-gov-et
-# directory portal for ethiopian governmetn offices and officials
+# directory portal for ethiopian government offices and officials
