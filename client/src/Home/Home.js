@@ -25,7 +25,7 @@ const Home = () => {
                 color="inherit"
                 gutterBottom
               >
-                National Internet Governance
+                Ethiopian Government Directory
               </Typography>
               <Typography
                 variant="body1"

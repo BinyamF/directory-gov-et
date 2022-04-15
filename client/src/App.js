@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   CssBaseline,
   Container,
@@ -11,27 +11,20 @@ import {
   MenuItem,
   Button
 } from "@material-ui/core";
-import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import { getPosts } from "./actions/posts";
 import emblem from "./images/emblem.png";
 import Posts from "./Posts/Posts";
 import Organizations from "./Organizations/Organizations";
 import Officials from "./Officials/Officials";
 import Form from "./Form/Form.js";
 import styles from "./styles";
-import { getOfficials } from "./actions/officials";
-import { getOrganizations } from "./actions/organizations";
 import Home from "./Home/Home";
+import OrganizationReg from "./OrganizationReg/OrganizationReg";
+import OfficialsReg from "./OfficialsReg/OfficialsReg";
 
 const App = () => {
   const pages = ["Home", "Organizations", "Officials", "Form"];
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getPosts(), getOrganizations(), getOfficials());
-  }, [dispatch]);
 
   return (
     <>
@@ -72,7 +65,9 @@ const App = () => {
                   ></Route>
                   <Route path="/form" component={Form}></Route>
                   <Route path="/posts" component={Posts}></Route>
-                  <Organizations />
+                  <Route path="/organizationreg" component={OrganizationReg}></Route>
+                  <Route path="/officialsreg" component={OfficialsReg}></Route>
+                  
                 </Switch>
               
             </Grid>

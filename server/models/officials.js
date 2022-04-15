@@ -3,10 +3,7 @@ import mongoose from "mongoose";
 const officialsSchema = mongoose.Schema({
   firstName: !String,
   lastName: !String,
-  office: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Organization",
-  },
+  office: !String,
   picture: !String,
 });
 

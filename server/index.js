@@ -3,21 +3,20 @@ import mongoose from "mongoose";
 import cors from "cors";
 import bodyParser from "body-parser";
 
-import postRoutes from './routes/posts.js';
-import orgRoutes from './routes/organizations.js';
-import officialRoutes from './routes/officials.js';
+import postRoutes from "./routes/posts.js";
+import orgRoutes from "./routes/organizations.js";
+import officialRoutes from "./routes/officials.js";
 import { CONNECTION_URL } from "./config.js";
 
 const app = express();
 
-app.use('/posts', postRoutes);
-app.use('/organizations', orgRoutes);
-app.use('/officials',officialRoutes);
-
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors);
+app.use(cors());
 
+app.use("/posts", postRoutes);
+app.use("/organizations", orgRoutes);
+app.use("/officials", officialRoutes);
 const PORT = process.env.PORT || 5000;
 
 mongoose
@@ -26,4 +25,3 @@ mongoose
     app.listen(PORT, () => console.log(`Server running on port, ${PORT}`))
   )
   .catch((error) => console.log(error.message));
-

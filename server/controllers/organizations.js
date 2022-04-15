@@ -10,10 +10,11 @@ export const getOrganization = async (req, res) => {
 };
 
 export const createOrganization = async (req, res) => {
-  const body = res.body;
+  const body = req.body;
   const newOrganization = new Organization(body);
   try {
     await newOrganization.save();
+    res.send("organization creation");
   } catch (error) {
     res.status(409).json({ message: error.message });
   }

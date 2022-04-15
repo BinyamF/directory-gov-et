@@ -2,12 +2,9 @@ import mongoose from "mongoose";
 
 const organizationSchema = mongoose.Schema({
   orgName: !String,
-  orgType: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "OrganizationType",
-  },
+  orgType: String,
   description: !String,
-  logo: !String,
+  logo: String,
   city: !String,
   phoneNo: ![String],
   website: !String,

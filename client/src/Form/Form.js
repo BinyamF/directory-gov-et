@@ -6,13 +6,12 @@ import { useDispatch } from "react-redux";
 import useStyles from "./styles";
 import { createPost } from "../actions/posts";
 
-
 const Form = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createPost(postData)) 
+    dispatch(createPost(postData));
   };
   const clear = () => {};
   const [postData, setPostData] = useState({
@@ -32,13 +31,69 @@ const Form = () => {
         onSubmit={handleSubmit}
       >
         <Typography variant="h6">Post Registration</Typography>
-        <TextField name="creator" variant="outlined" label="Creator" value={postData.creator} onChange={(e) => { setPostData({ ...postData, creator: e.target.value }); }} ></TextField>
-        <TextField name="title" variant="outlined" label="Title" value={postData.title} onChange={(e) => { setPostData({ ...postData, title: e.target.value }); }} ></TextField>
-        <TextField name="message" variant="outlined" label="Message" value={postData.message} onChange={(e) => { setPostData({ ...postData, message: e.target.value }); }} ></TextField>
-        <TextField name="tags" variant="outlined" label="Tags" value={postData.tags} onChange={(e) => { setPostData({ ...postData, tags: e.target.value }); }} ></TextField>
-        <div> <FileBase type="file" multiple={false} onDone={(base64) => { setPostData({ ...postData, selectedFile: base64 }); }} ></FileBase> </div>
-        <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit">Submit</Button>
-        <Button variant="contained" color="secondary" size="small" onClick={clear}>Clear</Button>
+        <TextField
+          name="creator"
+          variant="outlined"
+          label="Creator"
+          value={postData.creator}
+          onChange={(e) => {
+            setPostData({ ...postData, creator: e.target.value });
+          }}
+        ></TextField>
+        <TextField
+          name="title"
+          variant="outlined"
+          label="Title"
+          value={postData.title}
+          onChange={(e) => {
+            setPostData({ ...postData, title: e.target.value });
+          }}
+        ></TextField>
+        <TextField
+          name="message"
+          variant="outlined"
+          label="Message"
+          value={postData.message}
+          onChange={(e) => {
+            setPostData({ ...postData, message: e.target.value });
+          }}
+        ></TextField>
+        <TextField
+          name="tags"
+          variant="outlined"
+          label="Tags"
+          value={postData.tags}
+          onChange={(e) => {
+            setPostData({ ...postData, tags: e.target.value });
+          }}
+        ></TextField>
+        <div>
+          {" "}
+          <FileBase
+            type="file"
+            multiple={false}
+            onDone={(base64) => {
+              setPostData({ ...postData, selectedFile: base64 });
+            }}
+          ></FileBase>{" "}
+        </div>
+        <Button
+          className={classes.buttonSubmit}
+          variant="contained"
+          color="primary"
+          size="large"
+          type="submit"
+        >
+          Submit
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          size="small"
+          onClick={clear}
+        >
+          Clear
+        </Button>
       </form>
     </Paper>
   );
