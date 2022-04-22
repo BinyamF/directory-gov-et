@@ -9,7 +9,8 @@ import {
   Grow,
   Grid,
   MenuItem,
-  Button
+  Button,
+  Divider,
 } from "@material-ui/core";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -28,33 +29,43 @@ const App = () => {
 
   return (
     <>
-    <Router>
-      <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <Box display="flex" flexGrow={1} alignItems="center">
-            <img src={emblem} alt="logo" style={styles.logo} height="60"></img>
-            <Typography variant="h5">Ethiopian Government Directory</Typography>
-          </Box>
-          {pages.map((page) => (
-            <MenuItem key={page}>
-              <Button color="inherit" underline="none" component={Link} to={"/" + page}>
-                {page}
-              </Button>
-            </MenuItem>
-          ))}
-        </Toolbar>
-      </AppBar>
-      <Grow in>
-        <Container>
-          <Grid
-            container
-            justifyContent="space-between"
-            alignItems="stretch"
-            spacign={3}
-          >
-            <Grid item xs={12} sm={7}>
-              
+      <Router>
+        <CssBaseline />
+        <AppBar position="relative">
+          <Toolbar>
+            <Box display="flex" flexGrow={1} alignItems="center">
+              <img
+                src={emblem}
+                alt="logo"
+                style={styles.logo}
+                height="60"
+              ></img>
+              <Typography variant="h5">
+                Ethiopian Government Directory
+              </Typography>
+            </Box>
+            {pages.map((page) => (
+              <MenuItem key={page}>
+                <Button
+                  color="inherit"
+                  underline="none"
+                  component={Link}
+                  to={"/" + page}
+                >
+                  {page}
+                </Button>
+              </MenuItem>
+            ))}
+          </Toolbar>
+        </AppBar>
+        <Grow in>
+          <Container>
+            <Grid
+              container
+              justifyContent="space-between"
+              alignItems="stretch"
+              spacign={3}
+            >
                 <Switch>
                   <Route exact path="/" component={Home}></Route>
                   <Route path="/Home" component={Home}></Route>
@@ -65,16 +76,30 @@ const App = () => {
                   ></Route>
                   <Route path="/form" component={Form}></Route>
                   <Route path="/posts" component={Posts}></Route>
-                  <Route path="/organizationreg" component={OrganizationReg}></Route>
+                  <Route
+                    path="/organizationreg"
+                    component={OrganizationReg}
+                  ></Route>
                   <Route path="/officialsreg" component={OfficialsReg}></Route>
-                  
                 </Switch>
-              
             </Grid>
-          </Grid>
-        </Container>
-      </Grow>
+          </Container>
+        </Grow>
       </Router>
+      <footer>
+        <Container style={styles.footer}>
+          <Divider />
+          <Typography
+            variant="subtitle1"
+            align="center"
+            color="textSecondary"
+            style={styles.footer}
+          >
+            Copyright © 2022 Directory of Government of the Federal Democratic
+            Republic of Ethiopia.
+          </Typography>
+        </Container>
+      </footer>
     </>
   );
 };

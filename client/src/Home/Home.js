@@ -1,38 +1,20 @@
 import React from "react";
-import { Button, Container, Grid, Typography, Paper } from "@material-ui/core";
+import { Container, Typography, Grid, Box, Divider } from "@material-ui/core";
+import Organizations from "../Organizations/Organizations";
+import Officials from "../Officials/Officials";
 
 const Home = () => {
   return (
     <>
       <main>
         <div>
-          <Container maxWidth="lg">
-            <Paper
-              sx={{
-                position: "relative",
-                backgroundColor: "grey.800",
-                color: "#fff",
-                mb: 4,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                backgroundImage: `url(${"https://source.unsplash.com/random"})`,
-              }}
-            >
-              <Typography
-                component="h1"
-                variant="h3"
-                color="inherit"
-                gutterBottom
-              >
-                Ethiopian Government Directory
-              </Typography>
-              <Typography
-                variant="body1"
-                align="left"
-                color="textSecondary"
-                paragraph
-              >
+        <Container maxWidth="lg">
+        <Grid container>
+          <Box
+            sx={{ position: "relative", p: { xs: 3, md: 6 }, pr: { md: 0 } }}
+          >
+            <Typography component="h1" variant="h3" color="inherit" gutterBottom > Ethiopian Government Directory </Typography>
+              <Typography variant="body1" align="left" color="textSecondary" paragraph >
                 The Directory.gov.et portal has designed and maintained by
                 Ministry of Innovation and Technology (MInT) to product address
                 information about Federal government bodies and employees. So
@@ -40,23 +22,14 @@ const Home = () => {
                 difficult and government customers could not easily reach
                 government bodies.
               </Typography>
-            </Paper>
-
+          </Box>
+        </Grid>
+      </Container>
+          <Container maxWidth="lg">
             <div>
-              <Grid container spacing={2} justifyContent="center">
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    {" "}
-                    Watch More{" "}
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    {" "}
-                    Watch More{" "}
-                  </Button>
-                </Grid>
-              </Grid>
+              <Organizations/>
+              <Divider/>
+              <Officials/>
             </div>
           </Container>
         </div>

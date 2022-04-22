@@ -1,6 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
-
-export default makeStyles(() => ({
+const styles = {
   appBar: {
     borderRadius: 15,
     margin: "30px 0",
@@ -15,11 +13,11 @@ export default makeStyles(() => ({
   image: {
     marginLeft: "15px",
   },
-  logo:{
+  logo: {
     height: "65px",
     paddingRight: "10px",
   },
-  button:{
+  button: {
     color: "#f3f",
   },
   icon: {
@@ -52,6 +50,7 @@ export default makeStyles(() => ({
     padding: "20px 0",
   },
   card: {
+    width: "100%",
     height: "100%",
     display: "flex",
     flexDirection: "column",
@@ -62,4 +61,6 @@ export default makeStyles(() => ({
   footer: {
     padding: "20px",
   },
-}));
+};
+
+export default styles;

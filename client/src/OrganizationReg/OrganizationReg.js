@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Typography, Grid, TextField, Button } from "@material-ui/core";
+import { Typography, Grid, TextField, Button, Container, Box } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { createOrganization } from "../actions/organizations";
 
@@ -25,10 +25,18 @@ const OrganizationReg = () => {
   return (
     <>
       {" "}
-      <Typography variant="h6" gutterBottom>
-        {" "}
-        Organization Registration{" "}
-      </Typography>
+      <Container maxWidth="lg">
+        <Grid container>
+          <Box sx={{ position: "relative", p: { xs: 3, md: 6 }, pr: { md: 0 } }} >
+            <Typography variant="h4" color="inherit">
+              {"Organization Registration"}
+            </Typography>
+            <Typography variant="overline" color="inherit" gutterBottom>
+              {"Registration form of organization's detail."}
+            </Typography>
+          </Box>          
+        </Grid>
+      </Container>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
@@ -189,18 +197,20 @@ const OrganizationReg = () => {
             }}
           />
         </Grid>
-        <Grid container spacing={2}>
-          <Grid item>
-            <Button variant="contained" color="primary" size="large" type="submit" onClick={handleSubmit} >
-              Submit
-            </Button>
+        <Container gutterBottom>
+          <Grid container spacing={2} >
+            <Grid item>
+              <Button variant="contained" color="primary" size="large" type="submit" onClick={handleSubmit} >
+                Submit
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button variant="outlined" color="primary" size="large" onClick={clear} >
+                Clear
+              </Button>
+            </Grid>
           </Grid>
-          <Grid item>
-            <Button variant="outlined" color="primary" size="large" onClick={clear} >
-              Clear
-            </Button>
-          </Grid>
-        </Grid>
+        </Container>        
       </Grid>
     </>
   );

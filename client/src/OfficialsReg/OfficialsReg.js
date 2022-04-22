@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Typography, Grid, TextField, Button } from "@material-ui/core";
+import { Typography, Grid, TextField, Button, Container, Box } from "@material-ui/core";
 import { useDispatch } from "react-redux";
 import { createOfficials } from "../actions/officials";
 
@@ -19,10 +19,18 @@ const OfficialsReg = () => {
   return (
     <>
       {" "}
-      <Typography variant="h6" gutterBottom>
-        {" "}
-        Officials Registration{" "}
-      </Typography>
+      <Container maxWidth="lg">
+        <Grid container>
+          <Box sx={{ position: "relative", p: { xs: 3, md: 6 }, pr: { md: 0 } }} >
+            <Typography variant="h4" color="inherit">
+              {"Officials Registration"}
+            </Typography>
+            <Typography variant="overline" color="inherit" gutterBottom>
+              {"Registration form of Officials' detail."}
+            </Typography>
+          </Box>          
+        </Grid>
+      </Container>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
