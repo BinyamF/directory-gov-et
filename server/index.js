@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import postRoutes from "./routes/posts.js";
 import orgRoutes from "./routes/organizations.js";
 import officialRoutes from "./routes/officials.js";
+import register from "./routes/register.js"
 import { CONNECTION_URL } from "./config.js";
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(cors());
 app.use("/posts", postRoutes);
 app.use("/organizations", orgRoutes);
 app.use("/officials", officialRoutes);
+app.use("/register", register);
 const PORT = process.env.PORT || 5000;
 
 mongoose
